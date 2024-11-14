@@ -41,8 +41,6 @@ public class Issurance {
     @Embedded
     private FileType fileType;
 
-    private String status;
-
     @PostPersist
     public void onPostPersist() {
         Printed printed = new Printed(this);
@@ -65,7 +63,7 @@ public class Issurance {
         repository().findBy신청번호(edmsStored.get신청번호()).ifPresent(issurance->{
             
             issurance.setStatus("발급완료"); 
-            issurance.set파일Id(edmsStored.get파일id());
+            issurance.set파일Id(edmsStored.getId().toString());
             repository().save(issurance);
 
             PrintRequested printRequested = new PrintRequested(issurance);

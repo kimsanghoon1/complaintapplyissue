@@ -101,7 +101,8 @@ public class Integration {
             repository().findById(integrationReqistered.get연계Id()).ifPresent(integration->{
             
                 integration.set결과코드("연계완료됨");
-                integration.set송신데이터("민원치리내역-"+ integrationReqistered.get연계Id());
+                integration.set송신데이터("민원송신내역-"+ integrationReqistered.get연계Id());
+                integration.set수신데이터("민원치리내역-"+ integrationReqistered.get연계Id());
                 repository().save(integration);
     
                 RelationPartyServiceDone relationPartyServiceDone = new RelationPartyServiceDone(integration);
