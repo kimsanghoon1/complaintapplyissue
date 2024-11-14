@@ -1,0 +1,129 @@
+<template>
+    <div style="margin: 0 -15px 0 -15px;">
+        <v-list two-line v-if="value.length > 0">
+            <v-list-group v-model="isExpansion">
+                <template v-slot:activator>
+                    <v-list-item-content>
+                        <v-list-item-title>신청수령방법</v-list-item-title>
+                    </v-list-item-content>
+                </template>
+            
+                <v-list-item v-for="(item, idx) in value" :key="idx">
+                    <v-list-item-content>
+                        <v-list-item-title>Message {{idx+1}}</v-list-item-title>
+                        <v-list-item-subtitle>
+                            수령방법코드 :  {{item.수령방법코드 }} <br>
+                            수령방법명 :  {{item.수령방법명 }} <br>
+                            수령방법구분명 :  {{item.수령방법구분명 }} <br>
+                            등록자Id :  {{item.등록자Id }} <br>
+                            등록일시 :  {{item.등록일시 }} <br>
+                            수령자Id :  {{item.수령자Id }} <br>
+                            수령일시 :  {{item.수령일시 }} <br>
+                        </v-list-item-subtitle>
+                    </v-list-item-content>
+                    <v-list-item-action v-if="editMode">
+                        <v-btn icon @click="deleteItem(item)">
+                            <v-icon small color="secondary lighten-1">mdi-delete</v-icon>
+                        </v-btn>
+                    </v-list-item-action>
+                </v-list-item>
+            </v-list-group>
+        </v-list>
+
+        <신청수령방법 v-if="editMode && tick" offline :isNew="true" :inList="true"
+                :editMode="editMode" v-model="newValue" @add="append">
+            <template slot="actions">
+                <v-spacer></v-spacer>
+                <v-btn
+                        color="primary"
+                        text
+                        @click="edit"
+                        v-if="!editMode"
+                >
+                    Edit
+                </v-btn>
+                
+                <v-btn
+                        color="primary"
+                        text
+                        @click="append(newValue)"
+                        v-else
+                >
+                    Add
+                </v-btn>
+                <v-btn
+                        color="primary"
+                        text
+                        @click="remove"
+                        v-if="!editMode"
+                >
+                    Delete
+                </v-btn>
+            </template>
+        </신청수령방법>
+    </div>
+</template>
+
+<script>
+    import 신청수령방법 from '../신청수령방법.vue';
+
+    export default {
+        name: '신청수령방법Manager',
+        components: {
+            신청수령방법
+        },
+        props: {
+            value: [Object, String, Number, Boolean, Array],
+            offline: Boolean,
+            editMode: Boolean
+        },
+        data: () => ({
+            newValue: {},
+            tick : true,
+            isExpansion: false,
+        }),
+        async created() {
+            if (!this.value) {
+                this.value = [];
+            }
+        },
+        methods: {
+            append(value){
+                this.tick = false
+                this.newValue = {}
+
+                if(!this.value){
+                    this.value = [];
+                }
+
+                this.value.push(value)
+                
+                this.$emit('input', this.value);
+
+                this.$nextTick(function(){
+                    this.tick=true
+                })
+            },
+            remove(value) {
+                var where = -1;
+                for (var i=0; i<this.value.length; i++) {
+                    if(this.value[i]._links.self.href == value._links.self.href) {
+                        where = i;
+                        break;
+                    }
+                }
+
+                if(where > -1) {
+                    this.value.splice(i, 1);
+                    this.$emit('input', this.value);
+                }
+            },
+            deleteItem(val) {
+                this.value.splice(this.value.indexOf(val), 1);
+                this.$emit('input', this.value);
+            },
+        }
+    };
+    
+</script>
+
