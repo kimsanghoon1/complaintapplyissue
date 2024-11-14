@@ -28,7 +28,7 @@ public class ApplicationStatusQueryViewHandler {
             ApplicationStatusQuery applicationStatusQuery = new ApplicationStatusQuery();
             // view 객체에 이벤트의 Value 를 set 함
             applicationStatusQuery.setId(
-                complaintAccepted.get신청데이터일렬번호()
+                complaintAccepted.get신청번호()
             );
             applicationStatusQuery.setStatus("신청완료");
             // view 레파지 토리에 save

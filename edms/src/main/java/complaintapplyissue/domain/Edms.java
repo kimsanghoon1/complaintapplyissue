@@ -28,7 +28,8 @@ public class Edms {
 
     @PostPersist
     public void onPostPersist() {
-
+        EdmsStored edmsStored = new EdmsStored(this);
+        edmsStored.publishAfterCommit();
     }
 
     public static EdmsRepository repository() {
@@ -43,11 +44,10 @@ public class Edms {
         RelationPartyServiceDone relationPartyServiceDone
     ) {
 
-        
-        EdmsStored edmsStored = new EdmsStored();
-        edmsStored.set신청번호(relationPartyServiceDone.get신청번호());
-        edmsStored.set파일명(relationPartyServiceDone.get수신데이터());
-        edmsStored.publishAfterCommit();
+        Edms edms = new Edms();
+        edms.set신청번호(relationPartyServiceDone.get신청번호());
+        edms.set파일명(relationPartyServiceDone.get수신데이터());
+        repository().save(edms);
 
     }
     //>>> Clean Arch / Port Method

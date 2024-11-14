@@ -16,7 +16,7 @@ spring:
         - id: issue
           uri: http://localhost:8083
           predicates:
-            - Path=/issurances/**, 
+            - Path=/issurances/**, applicationStatusQueries/**
         - id: alarm
           uri: http://localhost:8084
           predicates:

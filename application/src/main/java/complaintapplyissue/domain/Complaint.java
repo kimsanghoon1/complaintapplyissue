@@ -48,6 +48,7 @@ public class Complaint {
     @PostPersist
     public void onPostPersist() {
         ComplaintAccepted complaintAccepted = new ComplaintAccepted(this);
+        complaintAccepted.set신청번호(get신청번호().toString());
         complaintAccepted.publishAfterCommit();
     }
 
