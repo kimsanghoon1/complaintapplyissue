@@ -34,9 +34,6 @@ public class Issurance {
     private String 파일순서;
 
     @Embedded
-    private 민원접수id 민원접수id;
-
-    @Embedded
     private FileType fileType;
 
     @PostPersist

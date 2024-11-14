@@ -24,7 +24,6 @@
             <String label="파일확장자명" v-model="value.파일확장자명" :editMode="editMode" :inputUI="''"/>
             <String label="파일크기" v-model="value.파일크기" :editMode="editMode" :inputUI="''"/>
             <String label="파일순서" v-model="value.파일순서" :editMode="editMode" :inputUI="''"/>
-            <민원접수id offline label="민원접수id" v-model="value.민원접수id" :editMode="editMode" @change="change"/>
             <FileType offline label="FileType" v-model="value.fileType" :editMode="editMode" @change="change"/>
         </v-card-text>
 

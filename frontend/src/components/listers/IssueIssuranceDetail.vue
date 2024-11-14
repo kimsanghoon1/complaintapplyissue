@@ -29,7 +29,6 @@
             <div>
                 <String label="파일순서" v-model="item.파일순서" :editMode="editMode" @change="change" />
             </div>
-            <민원접수id offline label="민원접수id" v-model="item.민원접수id" :editMode="false" :key="false" @change="change" />
             <FileType offline label="FileType" v-model="item.fileType" :editMode="false" :key="false" @change="change" />
         </v-card-text>
 

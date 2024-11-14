@@ -49,7 +49,6 @@
                             
                             
                             
-                            
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
@@ -61,7 +60,6 @@
                             [ 파일확장자명 :  {{data.파일확장자명 }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ 파일크기 :  {{data.파일크기 }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ 파일순서 :  {{data.파일순서 }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ 민원접수id :  {{data.민원접수id }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ FileType :  {{data.fileType }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
@@ -138,7 +136,6 @@
                 '파일확장자명': '',
                 '파일크기': '',
                 '파일순서': '',
-                '민원접수id': {},
                 'fileType': '',
             }
         },
