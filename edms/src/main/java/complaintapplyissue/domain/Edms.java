@@ -28,8 +28,7 @@ public class Edms {
 
     @PostPersist
     public void onPostPersist() {
-        EdmsStored edmsStored = new EdmsStored(this);
-        edmsStored.publishAfterCommit();
+
     }
 
     public static EdmsRepository repository() {
@@ -43,24 +42,12 @@ public class Edms {
     public static void 문서저장(
         RelationPartyServiceDone relationPartyServiceDone
     ) {
-        //implement business logic here:
 
-        /** Example 1:  new item 
-        Edms edms = new Edms();
-        repository().save(edms);
-
-        */
-
-        /** Example 2:  finding and process
         
-        repository().findById(relationPartyServiceDone.get???()).ifPresent(edms->{
-            
-            edms // do something
-            repository().save(edms);
-
-
-         });
-        */
+        EdmsStored edmsStored = new EdmsStored();
+        edmsStored.set신청번호(relationPartyServiceDone.get신청번호());
+        edmsStored.set파일명(relationPartyServiceDone.get수신데이터());
+        edmsStored.publishAfterCommit();
 
     }
     //>>> Clean Arch / Port Method

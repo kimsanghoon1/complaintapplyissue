@@ -5,6 +5,8 @@ import complaintapplyissue.domain.RelationPartyServiceDone;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
+
 import javax.persistence.*;
 import lombok.Data;
 
@@ -45,10 +47,6 @@ public class Integration {
 
     @PostPersist
     public void onPostPersist() {
-        RelationPartyServiceDone relationPartyServiceDone = new RelationPartyServiceDone(
-            this
-        );
-        relationPartyServiceDone.publishAfterCommit();
     }
 
     public static IntegrationRepository repository() {
@@ -60,24 +58,20 @@ public class Integration {
 
     //<<< Clean Arch / Port Method
     public static void 소관부서호출(ComplaintAccepted complaintAccepted) {
-        //implement business logic here:
 
-        /** Example 1:  new item 
-        Integration integration = new Integration();
-        repository().save(integration);
+        //실제 시스템 연동시 60 프로 확률로 성공함
+        if(Math.random() > 0.6){
+            RelationPartyServiceDone relationPartyServiceDone = new RelationPartyServiceDone();
 
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(complaintAccepted.get???()).ifPresent(integration->{
-            
-            integration // do something
-            repository().save(integration);
+            relationPartyServiceDone.set신청번호(complaintAccepted.get신청번호());
+            relationPartyServiceDone.set송신데이터("민원발급내용["+ complaintAccepted.get신청번호() + "]");
+    
+            relationPartyServiceDone.publishAfterCommit();
+    
+        }else
+            throw new RuntimeException("장애발생");
 
 
-         });
-        */
 
     }
     //>>> Clean Arch / Port Method
