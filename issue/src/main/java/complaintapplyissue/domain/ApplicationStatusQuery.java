@@ -17,4 +17,5 @@ public class ApplicationStatusQuery {
     private Long id;
 
     private String status;
+    private String edmsDocumentId;
 }
