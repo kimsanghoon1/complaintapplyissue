@@ -51,6 +51,9 @@ public class ApplicationStatusQueryViewHandler {
                 ApplicationStatusQuery applicationStatusQuery = applicationStatusQueryOptional.get();
                 // view 객체에 이벤트의 eventDirectValue 를 set 함
                 applicationStatusQuery.setStatus("발급완료");
+                applicationStatusQuery.setEdmsDocumentId(
+                    edmsStored.get파일id()
+                );
                 // view 레파지 토리에 save
                 applicationStatusQueryRepository.save(applicationStatusQuery);
             }

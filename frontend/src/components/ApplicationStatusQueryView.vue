@@ -23,6 +23,7 @@
             headers: [
                 { text: "id", value: "id" },
                 { text: "status", value: "status" },
+                { text: "edmsDocumentId", value: "edmsDocumentId" },
             ],
             applicationStatusQuery : [],
         }),
