@@ -75,6 +75,7 @@
                     { text: "파일크기", value: "파일크기" },
                     { text: "파일순서", value: "파일순서" },
                     { text: "fileType", value: "fileType" },
+                    { text: "status", value: "status" },
                 ],
             issurance : [],
             newValue: {},
@@ -101,6 +102,7 @@
                 '파일크기': '',
                 '파일순서': '',
                 'fileType': '',
+                'status': '',
             }
         },
         methods: {

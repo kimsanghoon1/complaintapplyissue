@@ -25,6 +25,7 @@
             <String label="파일크기" v-model="value.파일크기" :editMode="editMode" :inputUI="''"/>
             <String label="파일순서" v-model="value.파일순서" :editMode="editMode" :inputUI="''"/>
             <FileType offline label="FileType" v-model="value.fileType" :editMode="editMode" @change="change"/>
+            <String label="Status" v-model="value.status" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions style="background-color: white;">
