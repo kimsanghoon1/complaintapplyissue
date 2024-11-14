@@ -48,8 +48,8 @@
 
                     <v-list-item
                         class="px-2"
-                        key="발급"
-                        to="/issues/발급"
+                        key="issurances"
+                        to="/issues/issurances"
                         @click="changeUrl()"
                         color="primary"
                         style="font-weight:700;"
@@ -182,8 +182,8 @@ export default {
             { 
                 title: '발급', 
                 description: '', 
-                key: '발급', 
-                route: '/issues/발급',
+                key: 'issurances', 
+                route: '/issues/issurances',
                 ImageUrl: '',
             },
             { 

@@ -16,7 +16,7 @@ spring:
         - id: issue
           uri: http://localhost:8083
           predicates:
-            - Path=/발급/**, 
+            - Path=/issurances/**, 
         - id: alarm
           uri: http://localhost:8084
           predicates:
@@ -60,7 +60,7 @@ spring:
         - id: issue
           uri: http://issue:8080
           predicates:
-            - Path=/발급/**, 
+            - Path=/issurances/**, 
         - id: alarm
           uri: http://alarm:8080
           predicates:

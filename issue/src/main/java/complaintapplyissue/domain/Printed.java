@@ -19,7 +19,7 @@ public class Printed extends AbstractEvent {
     private String 증명서여부;
     private String 출력여부;
 
-    public Printed(발급 aggregate) {
+    public Printed(Issurance aggregate) {
         super(aggregate);
     }
 

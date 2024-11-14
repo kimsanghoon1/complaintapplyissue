@@ -8,8 +8,8 @@ Vue.use(Router);
 import ApplicationComplaintManager from "./components/listers/ApplicationComplaintCards"
 import ApplicationComplaintDetail from "./components/listers/ApplicationComplaintDetail"
 
-import Issue발급Manager from "./components/listers/Issue발급Cards"
-import Issue발급Detail from "./components/listers/Issue발급Detail"
+import IssueIssuranceManager from "./components/listers/IssueIssuranceCards"
+import IssueIssuranceDetail from "./components/listers/IssueIssuranceDetail"
 
 import Alarm알림Manager from "./components/listers/Alarm알림Cards"
 import Alarm알림Detail from "./components/listers/Alarm알림Detail"
@@ -37,14 +37,14 @@ export default new Router({
             },
 
             {
-                path: '/issues/발급',
-                name: 'Issue발급Manager',
-                component: Issue발급Manager
+                path: '/issues/issurances',
+                name: 'IssueIssuranceManager',
+                component: IssueIssuranceManager
             },
             {
-                path: '/issues/발급/:id',
-                name: 'Issue발급Detail',
-                component: Issue발급Detail
+                path: '/issues/issurances/:id',
+                name: 'IssueIssuranceDetail',
+                component: IssueIssuranceDetail
             },
 
             {
