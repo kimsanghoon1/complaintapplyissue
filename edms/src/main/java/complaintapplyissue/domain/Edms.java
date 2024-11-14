@@ -26,6 +26,14 @@ public class Edms {
 
     private Boolean 저장유무;
 
+    private String 파일경로명;
+
+    private String 파일확장자명;
+
+    private String 파일크기;
+
+    private String 파일순서;
+
     @PostPersist
     public void onPostPersist() {
         EdmsStored edmsStored = new EdmsStored(this);
@@ -47,6 +55,12 @@ public class Edms {
         Edms edms = new Edms();
         edms.set신청번호(relationPartyServiceDone.get신청번호());
         edms.set파일명(relationPartyServiceDone.get수신데이터());
+        edms.set저장유무(true);
+        edms.set파일경로명("/documents/" + edms.get파일명());
+        edms.set파일크기(Math.random()*100 + " mb");
+        edms.set파일확장자명("pdf");
+        
+
         repository().save(edms);
 
     }

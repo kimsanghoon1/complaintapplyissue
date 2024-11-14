@@ -64,6 +64,11 @@ public class Issurance {
             
             issurance.setStatus("발급완료"); 
             issurance.set파일Id(edmsStored.getId().toString());
+            issurance.set파일경로명(edmsStored.get파일경로명());
+            issurance.set파일명(edmsStored.get파일명());
+            issurance.set파일크기(edmsStored.get파일크기());
+            issurance.set파일확장자명(edmsStored.get파일확장자명());
+            
             repository().save(issurance);
 
             PrintRequested printRequested = new PrintRequested(issurance);
