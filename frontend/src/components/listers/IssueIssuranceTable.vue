@@ -74,7 +74,6 @@
                     { text: "파일확장자명", value: "파일확장자명" },
                     { text: "파일크기", value: "파일크기" },
                     { text: "파일순서", value: "파일순서" },
-                    { text: "민원접수id", value: "민원접수id" },
                     { text: "fileType", value: "fileType" },
                 ],
             issurance : [],
@@ -101,7 +100,6 @@
                 '파일확장자명': '',
                 '파일크기': '',
                 '파일순서': '',
-                '민원접수id': {},
                 'fileType': '',
             }
         },

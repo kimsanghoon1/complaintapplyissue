@@ -39,9 +39,6 @@
                                 파일순서 :  {{item.파일순서 }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                민원접수id :  {{item.민원접수id }}
-                            </v-list-item-subtitle>
-                            <v-list-item-subtitle>
                                 FileType :  {{item.fileType }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
@@ -95,8 +92,6 @@
                 if(val != undefined) {
                     var arr = this.list[val]._links.self.href.split('/');
                     obj['발급파일일련번호'] = arr[4]; 
-                    
-                    
                     
                     
                     
