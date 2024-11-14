@@ -1,12 +1,12 @@
 package complaintapplyissue.domain;
 
+import complaintapplyissue.domain.*;
 import complaintapplyissue.infra.AbstractEvent;
-import lombok.Data;
 import java.util.*;
-import java.time.LocalDate;
-
+import lombok.*;
 
 @Data
+@ToString
 public class EdmsStored extends AbstractEvent {
 
     private Long id;
