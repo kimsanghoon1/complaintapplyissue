@@ -23,7 +23,7 @@ public class Integration {
     private String 서비스Id;
 
     @Embedded
-    private 유형일렬번호 유형일렬번호;
+    private TypeSequenceNo 유형일렬번호;
 
     private String 연계인터페이스;
 

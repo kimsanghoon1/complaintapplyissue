@@ -27,8 +27,8 @@
             <Date label="등록일시" v-model="value.등록일시" :editMode="editMode" :inputUI="''"/>
             <Date label="수정일시" v-model="value.수정일시" :editMode="editMode" :inputUI="''"/>
             <구비서류 offline label="구비서류" v-model="value.구비서류" :editMode="editMode" @change="change"/>
-            <신청수령방법 offline label="신청수령방법" v-model="value.신청수령방법" :editMode="editMode" @change="change"/>
-            <신청서파일 offline label="신청서파일" v-model="value.신청서파일" :editMode="editMode" @change="change"/>
+            <ReceiveMethod offline label="신청수령방법" v-model="value.신청수령방법" :editMode="editMode" @change="change"/>
+            <ApplicationFile offline label="ApplicationFile" v-model="value.applicationFile" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions style="background-color: white;">

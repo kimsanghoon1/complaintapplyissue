@@ -40,10 +40,10 @@ public class Complaint {
     private 구비서류 구비서류;
 
     @Embedded
-    private 신청수령방법 신청수령방법;
+    private ReceiveMethod 신청수령방법;
 
     @Embedded
-    private 신청서파일 신청서파일;
+    private ApplicationFile applicationFile;
 
     @PostPersist
     public void onPostPersist() {

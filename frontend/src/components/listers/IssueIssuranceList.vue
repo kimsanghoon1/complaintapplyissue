@@ -60,9 +60,9 @@
                             [ 파일경로명 :  {{data.파일경로명 }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ 파일확장자명 :  {{data.파일확장자명 }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ 파일크기 :  {{data.파일크기 }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ 파일유형코드 :  {{data.파일유형코드 }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ 파일순서 :  {{data.파일순서 }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ 파일유형코드 :  {{data.파일유형코드 }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ 민원접수id :  {{data.민원접수id }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ FileType :  {{data.fileType }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -137,9 +137,9 @@
                 '파일경로명': '',
                 '파일확장자명': '',
                 '파일크기': '',
-                '파일유형코드': '',
                 '파일순서': '',
-                '파일유형코드': '',
+                '민원접수id': {},
+                'fileType': '',
             }
         },
         methods: {

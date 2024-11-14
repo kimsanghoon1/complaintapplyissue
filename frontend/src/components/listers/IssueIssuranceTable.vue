@@ -73,9 +73,9 @@
                     { text: "파일경로명", value: "파일경로명" },
                     { text: "파일확장자명", value: "파일확장자명" },
                     { text: "파일크기", value: "파일크기" },
-                    { text: "파일유형코드", value: "파일유형코드" },
                     { text: "파일순서", value: "파일순서" },
-                    { text: "파일유형코드", value: "파일유형코드" },
+                    { text: "민원접수id", value: "민원접수id" },
+                    { text: "fileType", value: "fileType" },
                 ],
             issurance : [],
             newValue: {},
@@ -100,9 +100,9 @@
                 '파일경로명': '',
                 '파일확장자명': '',
                 '파일크기': '',
-                '파일유형코드': '',
                 '파일순서': '',
-                '파일유형코드': '',
+                '민원접수id': {},
+                'fileType': '',
             }
         },
         methods: {

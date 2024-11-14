@@ -36,13 +36,13 @@
                                 파일크기 :  {{item.파일크기 }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                파일유형코드 :  {{item.파일유형코드 }}
-                            </v-list-item-subtitle>
-                            <v-list-item-subtitle>
                                 파일순서 :  {{item.파일순서 }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                파일유형코드 :  {{item.파일유형코드 }}
+                                민원접수id :  {{item.민원접수id }}
+                            </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                FileType :  {{item.fileType }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
 

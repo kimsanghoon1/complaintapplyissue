@@ -68,7 +68,7 @@
                             [ 수정일시 :  {{data.수정일시 }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ 구비서류 :  {{data.구비서류 }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ 신청수령방법 :  {{data.신청수령방법 }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ 신청서파일 :  {{data.신청서파일 }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ ApplicationFile :  {{data.applicationFile }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -148,7 +148,7 @@
                 '수정일시': '2024-11-14',
                 '구비서류': {},
                 '신청수령방법': {},
-                '신청서파일': {},
+                'applicationFile': {},
             }
         },
         methods: {

@@ -51,7 +51,7 @@
                                 신청수령방법 :  {{item.신청수령방법 }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                신청서파일 :  {{item.신청서파일 }}
+                                ApplicationFile :  {{item.applicationFile }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
 

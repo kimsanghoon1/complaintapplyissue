@@ -78,7 +78,7 @@
                     { text: "수정일시", value: "수정일시" },
                     { text: "구비서류", value: "구비서류" },
                     { text: "신청수령방법", value: "신청수령방법" },
-                    { text: "신청서파일", value: "신청서파일" },
+                    { text: "applicationFile", value: "applicationFile" },
                 ],
             complaint : [],
             newValue: {},
@@ -108,7 +108,7 @@
                 '수정일시': '2024-11-14',
                 '구비서류': {},
                 '신청수령방법': {},
-                '신청서파일': {},
+                'applicationFile': {},
             }
         },
         methods: {
