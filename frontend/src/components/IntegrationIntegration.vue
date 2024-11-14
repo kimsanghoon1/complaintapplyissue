@@ -19,7 +19,7 @@
             <Number v-if="editMode" label="연계Id" v-model="value.연계Id" :editMode="editMode" :inputUI="''"/>
             <String label="신청번호" v-model="value.신청번호" :editMode="editMode" :inputUI="''"/>
             <String label="서비스Id" v-model="value.서비스Id" :editMode="editMode" :inputUI="''"/>
-            <유형일렬번호 offline label="유형일렬번호" v-model="value.유형일렬번호" :editMode="editMode" @change="change"/>
+            <TypeSequenceNo offline label="유형일렬번호" v-model="value.유형일렬번호" :editMode="editMode" @change="change"/>
             <String label="연계인터페이스" v-model="value.연계인터페이스" :editMode="editMode" :inputUI="''"/>
             <String label="송신데이터" v-model="value.송신데이터" :editMode="editMode" :inputUI="''"/>
             <String label="수신데이터" v-model="value.수신데이터" :editMode="editMode" :inputUI="''"/>

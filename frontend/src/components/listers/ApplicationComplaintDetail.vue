@@ -36,8 +36,8 @@
                 <Date label="수정일시" v-model="item.수정일시" :editMode="editMode" @change="change" />
             </div>
             <구비서류 offline label="구비서류" v-model="item.구비서류" :editMode="false" :key="false" @change="change" />
-            <신청수령방법 offline label="신청수령방법" v-model="item.신청수령방법" :editMode="false" :key="false" @change="change" />
-            <신청서파일 offline label="신청서파일" v-model="item.신청서파일" :editMode="false" :key="false" @change="change" />
+            <ReceiveMethod offline label="신청수령방법" v-model="item.신청수령방법" :editMode="false" :key="false" @change="change" />
+            <ApplicationFile offline label="ApplicationFile" v-model="item.applicationFile" :editMode="false" :key="false" @change="change" />
         </v-card-text>
 
         <v-card-actions>

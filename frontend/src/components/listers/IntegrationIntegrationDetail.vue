@@ -14,7 +14,7 @@
             <div>
                 <String label="서비스Id" v-model="item.서비스Id" :editMode="editMode" @change="change" />
             </div>
-            <유형일렬번호 offline label="유형일렬번호" v-model="item.유형일렬번호" :editMode="false" :key="false" @change="change" />
+            <TypeSequenceNo offline label="유형일렬번호" v-model="item.유형일렬번호" :editMode="false" :key="false" @change="change" />
             <div>
                 <String label="연계인터페이스" v-model="item.연계인터페이스" :editMode="editMode" @change="change" />
             </div>

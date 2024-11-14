@@ -1,18 +1,18 @@
 <template>
     <div style="margin: 0 -15px 0 -15px;">
         <v-card-title>
-            FileType
+            TypeSequenceNo
         </v-card-title>
         <v-card-text>
             <div v-if="editMode" style="margin-top:-20px;">
                 <v-select
                         v-model="newValue"
                         :label="'name'"
-                        :items="fileTypeList"
+                        :items="typeSequenceNoList"
                 ></v-select>
             </div>
             <div v-else style="margin-top:-20px;">
-                FileType : {{ value }}
+                TypeSequenceNo : {{ value }}
             </div>
         </v-card-text>
     </div>
@@ -20,7 +20,7 @@
 
 <script>
     export default {
-        name: 'FileType',
+        name: 'TypeSequenceNo',
         components:{},
         props: {
             value: [Object, String, Number, Boolean, Array],
@@ -31,12 +31,12 @@
             label: String,
         },
         data: () => ({
-            fileTypeList : [ "pdf",  "png", ],
+            typeSequenceNoList : [ "등본신청",  "초본신청", ],
             newValue: '',
         }),
         async created() {
             if(!this.value) {
-                this.newValue = this.fileTypeList[0];
+                this.newValue = this.typeSequenceNoList[0];
             } else {
                 this.newValue = this.value;
             }
