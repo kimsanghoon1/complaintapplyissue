@@ -31,12 +31,13 @@ public class Issurance {
 
     private String 파일크기;
 
-    private String 파일유형코드;
-
     private String 파일순서;
 
     @Embedded
-    private 파일유형코드 파일유형코드;
+    private 민원접수id 민원접수id;
+
+    @Embedded
+    private FileType fileType;
 
     @PostPersist
     public void onPostPersist() {

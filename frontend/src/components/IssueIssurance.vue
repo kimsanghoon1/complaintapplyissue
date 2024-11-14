@@ -23,9 +23,9 @@
             <String label="파일경로명" v-model="value.파일경로명" :editMode="editMode" :inputUI="''"/>
             <String label="파일확장자명" v-model="value.파일확장자명" :editMode="editMode" :inputUI="''"/>
             <String label="파일크기" v-model="value.파일크기" :editMode="editMode" :inputUI="''"/>
-            <String label="파일유형코드" v-model="value.파일유형코드" :editMode="editMode" :inputUI="''"/>
             <String label="파일순서" v-model="value.파일순서" :editMode="editMode" :inputUI="''"/>
-            <파일유형코드 offline label="파일유형코드" v-model="value.파일유형코드" :editMode="editMode" @change="change"/>
+            <민원접수id offline label="민원접수id" v-model="value.민원접수id" :editMode="editMode" @change="change"/>
+            <FileType offline label="FileType" v-model="value.fileType" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions style="background-color: white;">

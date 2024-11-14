@@ -27,12 +27,10 @@
                 <String label="파일크기" v-model="item.파일크기" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <String label="파일유형코드" v-model="item.파일유형코드" :editMode="editMode" @change="change" />
-            </div>
-            <div>
                 <String label="파일순서" v-model="item.파일순서" :editMode="editMode" @change="change" />
             </div>
-            <파일유형코드 offline label="파일유형코드" v-model="item.파일유형코드" :editMode="false" :key="false" @change="change" />
+            <민원접수id offline label="민원접수id" v-model="item.민원접수id" :editMode="false" :key="false" @change="change" />
+            <FileType offline label="FileType" v-model="item.fileType" :editMode="false" :key="false" @change="change" />
         </v-card-text>
 
         <v-card-actions>
