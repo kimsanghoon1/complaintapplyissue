@@ -41,6 +41,9 @@
                             <v-list-item-subtitle>
                                 FileType :  {{item.fileType }}
                             </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                Status :  {{item.status }}
+                            </v-list-item-subtitle>
                         </v-list-item-content>
 
                         <v-list-item-action>
@@ -92,6 +95,8 @@
                 if(val != undefined) {
                     var arr = this.list[val]._links.self.href.split('/');
                     obj['발급파일일련번호'] = arr[4]; 
+                    
+                    
                     
                     
                     

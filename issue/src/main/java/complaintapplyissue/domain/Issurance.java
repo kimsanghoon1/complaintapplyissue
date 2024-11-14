@@ -41,6 +41,8 @@ public class Issurance {
     @Embedded
     private FileType fileType;
 
+    private String status;
+
     @PostPersist
     public void onPostPersist() {
         Printed printed = new Printed(this);

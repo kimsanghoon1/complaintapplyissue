@@ -30,6 +30,9 @@
                 <String label="파일순서" v-model="item.파일순서" :editMode="editMode" @change="change" />
             </div>
             <FileType offline label="FileType" v-model="item.fileType" :editMode="false" :key="false" @change="change" />
+            <div>
+                <String label="Status" v-model="item.status" :editMode="editMode" @change="change" />
+            </div>
         </v-card-text>
 
         <v-card-actions>

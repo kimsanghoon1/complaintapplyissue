@@ -49,6 +49,7 @@
                             
                             
                             
+                            
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
@@ -61,6 +62,7 @@
                             [ 파일크기 :  {{data.파일크기 }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ 파일순서 :  {{data.파일순서 }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ FileType :  {{data.fileType }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ Status :  {{data.status }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -137,6 +139,7 @@
                 '파일크기': '',
                 '파일순서': '',
                 'fileType': '',
+                'status': '',
             }
         },
         methods: {
