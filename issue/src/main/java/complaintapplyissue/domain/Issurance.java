@@ -33,6 +33,8 @@ public class Issurance {
 
     private String 파일순서;
 
+    private String status;
+
     @Embedded
     private ComplaintApplicationId 민원접수id;
 
@@ -57,52 +59,28 @@ public class Issurance {
 
     //<<< Clean Arch / Port Method
     public static void 처리정보수신(EdmsStored edmsStored) {
-        //implement business logic here:
 
-        /** Example 1:  new item 
-        Issurance issurance = new Issurance();
-        repository().save(issurance);
-
-        PrintRequested printRequested = new PrintRequested(issurance);
-        printRequested.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(edmsStored.get???()).ifPresent(issurance->{
+        repository().findBy신청번호(edmsStored.get신청번호()).ifPresent(issurance->{
             
-            issurance // do something
+            issurance.setStatus("발급완료"); 
+            issurance.set파일Id(edmsStored.get파일id());
             repository().save(issurance);
 
             PrintRequested printRequested = new PrintRequested(issurance);
             printRequested.publishAfterCommit();
 
          });
-        */
+       
 
     }
 
-    //>>> Clean Arch / Port Method
-    //<<< Clean Arch / Port Method
+   
     public static void 신청등록(ComplaintAccepted complaintAccepted) {
-        //implement business logic here:
 
-        /** Example 1:  new item 
         Issurance issurance = new Issurance();
+        issurance.set신청번호(complaintAccepted.get신청번호());
+        issurance.setStatus("신청중");
         repository().save(issurance);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(complaintAccepted.get???()).ifPresent(issurance->{
-            
-            issurance // do something
-            repository().save(issurance);
-
-
-         });
-        */
 
     }
     //>>> Clean Arch / Port Method
