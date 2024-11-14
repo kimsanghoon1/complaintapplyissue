@@ -1,6 +1,7 @@
 package complaintapplyissue.domain;
 
 import complaintapplyissue.IntegrationApplication;
+import complaintapplyissue.domain.IntegrationReqistered;
 import complaintapplyissue.domain.RelationPartyServiceDone;
 import java.time.LocalDate;
 import java.util.Date;
@@ -49,6 +50,11 @@ public class Integration {
             this
         );
         relationPartyServiceDone.publishAfterCommit();
+
+        IntegrationReqistered integrationReqistered = new IntegrationReqistered(
+            this
+        );
+        integrationReqistered.publishAfterCommit();
     }
 
     public static IntegrationRepository repository() {
@@ -59,13 +65,15 @@ public class Integration {
     }
 
     //<<< Clean Arch / Port Method
-    public static void 소관부서호출(ComplaintAccepted complaintAccepted) {
+    public static void 연계작업등록(ComplaintAccepted complaintAccepted) {
         //implement business logic here:
 
         /** Example 1:  new item 
         Integration integration = new Integration();
         repository().save(integration);
 
+        IntegrationReqistered integrationReqistered = new IntegrationReqistered(integration);
+        integrationReqistered.publishAfterCommit();
         */
 
         /** Example 2:  finding and process
@@ -75,6 +83,38 @@ public class Integration {
             integration // do something
             repository().save(integration);
 
+            IntegrationReqistered integrationReqistered = new IntegrationReqistered(integration);
+            integrationReqistered.publishAfterCommit();
+
+         });
+        */
+
+    }
+
+    //>>> Clean Arch / Port Method
+    //<<< Clean Arch / Port Method
+    public static void 소관부처서비스호출(
+        IntegrationReqistered integrationReqistered
+    ) {
+        //implement business logic here:
+
+        /** Example 1:  new item 
+        Integration integration = new Integration();
+        repository().save(integration);
+
+        RelationPartyServiceDone relationPartyServiceDone = new RelationPartyServiceDone(integration);
+        relationPartyServiceDone.publishAfterCommit();
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(integrationReqistered.get???()).ifPresent(integration->{
+            
+            integration // do something
+            repository().save(integration);
+
+            RelationPartyServiceDone relationPartyServiceDone = new RelationPartyServiceDone(integration);
+            relationPartyServiceDone.publishAfterCommit();
 
          });
         */

@@ -27,16 +27,34 @@ public class PolicyHandler {
         value = KafkaProcessor.INPUT,
         condition = "headers['type']=='ComplaintAccepted'"
     )
-    public void wheneverComplaintAccepted_소관부서호출(
+    public void wheneverComplaintAccepted_연계작업등록(
         @Payload ComplaintAccepted complaintAccepted
     ) {
         ComplaintAccepted event = complaintAccepted;
         System.out.println(
-            "\n\n##### listener 소관부서호출 : " + complaintAccepted + "\n\n"
+            "\n\n##### listener 연계작업등록 : " + complaintAccepted + "\n\n"
         );
 
         // Sample Logic //
-        Integration.소관부서호출(event);
+        Integration.연계작업등록(event);
+    }
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='IntegrationReqistered'"
+    )
+    public void wheneverIntegrationReqistered_소관부처서비스호출(
+        @Payload IntegrationReqistered integrationReqistered
+    ) {
+        IntegrationReqistered event = integrationReqistered;
+        System.out.println(
+            "\n\n##### listener 소관부처서비스호출 : " +
+            integrationReqistered +
+            "\n\n"
+        );
+
+        // Sample Logic //
+        Integration.소관부처서비스호출(event);
     }
 }
 //>>> Clean Arch / Inbound Adaptor
