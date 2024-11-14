@@ -14,7 +14,6 @@ public class RelationPartyServiceDone extends AbstractEvent {
     private Long 연계Id;
     private String 신청번호;
     private String 서비스Id;
-    private 유형일렬번호 유형일렬번호;
     private String 연계인터페이스;
     private String 송신데이터;
     private String 수신데이터;

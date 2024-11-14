@@ -37,7 +37,7 @@ public class Complaint {
     private Date 수정일시;
 
     @Embedded
-    private 구비서류 구비서류;
+    private ApplicationFile 구비서류;
 
     @Embedded
     private ReceiveMethod 신청수령방법;

@@ -21,7 +21,7 @@ public class ApplicationFile {
 
     private String 파일확장자명;
 
-    private 파일유형코드 파일유형코드;
+    private FileType 파일유형코드;
 
     private String 파일순서;
 
