@@ -1,6 +1,7 @@
 package complaintapplyissue.domain;
 
 import complaintapplyissue.IntegrationApplication;
+import complaintapplyissue.domain.IntegrationReqistered;
 import complaintapplyissue.domain.RelationPartyServiceDone;
 import java.time.LocalDate;
 import java.util.Date;
@@ -47,6 +48,10 @@ public class Integration {
 
     @PostPersist
     public void onPostPersist() {
+        IntegrationReqistered integrationReqistered = new IntegrationReqistered(
+            this
+        );
+        integrationReqistered.publishAfterCommit();
     }
 
     public static IntegrationRepository repository() {
@@ -57,22 +62,57 @@ public class Integration {
     }
 
     //<<< Clean Arch / Port Method
-    public static void 소관부서호출(ComplaintAccepted complaintAccepted) {
+    public static void 연계작업등록(ComplaintAccepted complaintAccepted) {
+        //implement business logic here:
 
+    
+        /** Example 1:  new item*/ 
+        Integration integration = new Integration();
+        integration.set신청번호(complaintAccepted.get신청번호());
+        integration.set결과코드("연계중");
+        repository().save(integration);
+
+        IntegrationReqistered integrationReqistered = new IntegrationReqistered(integration);
+        integrationReqistered.publishAfterCommit();
+        
+
+        /** Example 2:  finding and process
+        
+        repository().findById(complaintAccepted.get???()).ifPresent(integration->{
+            
+            integration // do something
+            repository().save(integration);
+
+            IntegrationReqistered integrationReqistered = new IntegrationReqistered(integration);
+            integrationReqistered.publishAfterCommit();
+
+         });
+        */
+    }
+
+    //>>> Clean Arch / Port Method
+    //<<< Clean Arch / Port Method
+    public static void 소관부처서비스호출(
+        IntegrationReqistered integrationReqistered
+    ) {
+       
         //실제 시스템 연동시 60 프로 확률로 성공함
         if(Math.random() > 0.6){
-            RelationPartyServiceDone relationPartyServiceDone = new RelationPartyServiceDone();
-
-            relationPartyServiceDone.set신청번호(complaintAccepted.get신청번호());
-            relationPartyServiceDone.set송신데이터("민원발급내용["+ complaintAccepted.get신청번호() + "]");
+            repository().findById(integrationReqistered.get연계Id()).ifPresent(integration->{
+            
+                integration.set결과코드("연계완료됨");
+                integration.set송신데이터("민원치리내역-"+ integrationReqistered.get연계Id());
+                repository().save(integration);
     
-            relationPartyServiceDone.publishAfterCommit();
+                RelationPartyServiceDone relationPartyServiceDone = new RelationPartyServiceDone(integration);
+                relationPartyServiceDone.publishAfterCommit();
     
+             });
+           
         }else
             throw new RuntimeException("장애발생");
 
-
-
+         
     }
     //>>> Clean Arch / Port Method
 
