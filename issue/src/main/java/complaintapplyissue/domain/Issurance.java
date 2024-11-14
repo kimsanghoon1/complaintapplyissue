@@ -51,5 +51,58 @@ public class Issurance {
         );
         return issuranceRepository;
     }
+
+    //<<< Clean Arch / Port Method
+    public static void 처리정보수신(EdmsStored edmsStored) {
+        //implement business logic here:
+
+        /** Example 1:  new item 
+        Issurance issurance = new Issurance();
+        repository().save(issurance);
+
+        PrintRequested printRequested = new PrintRequested(issurance);
+        printRequested.publishAfterCommit();
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(edmsStored.get???()).ifPresent(issurance->{
+            
+            issurance // do something
+            repository().save(issurance);
+
+            PrintRequested printRequested = new PrintRequested(issurance);
+            printRequested.publishAfterCommit();
+
+         });
+        */
+
+    }
+
+    //>>> Clean Arch / Port Method
+    //<<< Clean Arch / Port Method
+    public static void 신청등록(ComplaintAccepted complaintAccepted) {
+        //implement business logic here:
+
+        /** Example 1:  new item 
+        Issurance issurance = new Issurance();
+        repository().save(issurance);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(complaintAccepted.get???()).ifPresent(issurance->{
+            
+            issurance // do something
+            repository().save(issurance);
+
+
+         });
+        */
+
+    }
+    //>>> Clean Arch / Port Method
+
 }
 //>>> DDD / Aggregate Root
