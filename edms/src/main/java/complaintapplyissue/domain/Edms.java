@@ -18,21 +18,21 @@ public class Edms {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String 신청번호;
+    private String applicationNumber;
 
-    private String 파일id;
+    private String fileId;
 
-    private String 파일명;
+    private String fileName;
 
-    private Boolean 저장유무;
+    private Boolean isStored;
 
-    private String 파일경로명;
+    private String filePath;
 
-    private String 파일확장자명;
+    private String fileExtension;
 
-    private String 파일크기;
+    private String fileSize;
 
-    private String 파일순서;
+    private String fileOrder;
 
     @PostPersist
     public void onPostPersist() {
@@ -48,17 +48,17 @@ public class Edms {
     }
 
     //<<< Clean Arch / Port Method
-    public static void 문서저장(
+    public static void saveDocument(
         RelationPartyServiceDone relationPartyServiceDone
     ) {
 
         Edms edms = new Edms();
-        edms.set신청번호(relationPartyServiceDone.get신청번호());
-        edms.set파일명(relationPartyServiceDone.get수신데이터());
-        edms.set저장유무(true);
-        edms.set파일경로명("/documents/" + edms.get파일명());
-        edms.set파일크기(Math.random()*100 + " mb");
-        edms.set파일확장자명("pdf");
+        edms.setApplicationNumber(relationPartyServiceDone.getApplicationNumber());
+        edms.setFileName(relationPartyServiceDone.getReceptionData());
+        edms.setIsStored(true);
+        edms.setFilePath("/documents/" + edms.getFileName());
+        edms.setFileSize(Math.random()*100 + " mb");
+        edms.setFileExtension("pdf");
         
 
         repository().save(edms);

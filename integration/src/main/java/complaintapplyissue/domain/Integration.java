@@ -1,7 +1,7 @@
 package complaintapplyissue.domain;
 
 import complaintapplyissue.IntegrationApplication;
-import complaintapplyissue.domain.IntegrationReqistered;
+import complaintapplyissue.domain.IntegrationRegistered;
 import complaintapplyissue.domain.RelationPartyServiceDone;
 import java.time.LocalDate;
 import java.util.Date;
@@ -19,39 +19,37 @@ public class Integration {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long 연계Id;
+    private Long integrationId;
 
-    private String 신청번호;
+    private String applicationNumber;
 
-    private String 서비스Id;
+    private String serviceId;
 
     @Embedded
-    private TypeSequenceNo 유형일렬번호;
+    private TypeSequenceNo typeSequenceNumber;
 
-    private String 연계인터페이스;
+    private String integrationInterface;
 
-    private String 송신데이터;
+    private String sentData;
 
-    private String 수신데이터;
+    private String receivedData;
 
-    private String 결과코드;
+    private String resultCode;
 
-    private String 결과메시지;
+    private String resultMessage;
 
-    private Date 송신일시;
+    private Date sentTimestamp;
 
-    private Date 수신일시;
+    private Date receivedTimestamp;
 
-    private Date 등록일시;
+    private Date createdTimestamp;
 
-    private Date 수정일시;
+    private Date updatedTimestamp;
 
     @PostPersist
     public void onPostPersist() {
-        IntegrationReqistered integrationReqistered = new IntegrationReqistered(
-            this
-        );
-        integrationReqistered.publishAfterCommit();
+        IntegrationRegistered integrationRegistered = new IntegrationRegistered(this);
+        integrationRegistered.publishAfterCommit();
     }
 
     public static IntegrationRepository repository() {
@@ -62,17 +60,17 @@ public class Integration {
     }
 
     //<<< Clean Arch / Port Method
-    public static void 연계작업등록(ComplaintAccepted complaintAccepted) {
+    public static void registerIntegrationTask(ComplaintAccepted complaintAccepted) {
         //implement business logic here:
 
     
         /** Example 1:  new item*/ 
         Integration integration = new Integration();
-        integration.set신청번호(complaintAccepted.get신청번호());
-        integration.set결과코드("연계중");
+        integration.setApplicationNumber(complaintAccepted.getApplicationNumber());
+        integration.setResultCode("In Progress");
         repository().save(integration);
 
-        IntegrationReqistered integrationReqistered = new IntegrationReqistered(integration);
+        IntegrationRegistered integrationReqistered = new IntegrationRegistered(integration);
         integrationReqistered.publishAfterCommit();
         
 
@@ -92,17 +90,17 @@ public class Integration {
 
     //>>> Clean Arch / Port Method
     //<<< Clean Arch / Port Method
-    public static void 소관부처서비스호출(
-        IntegrationReqistered integrationReqistered
+    public static void callResponsibleDepartmentService(
+        IntegrationRegistered integrationRegistered
     ) {
        
         //실제 시스템 연동시 60 프로 확률로 성공함
         if(Math.random() > 0.6){
-            repository().findById(integrationReqistered.get연계Id()).ifPresent(integration->{
+            repository().findById(integrationRegistered.getIntegrationId()).ifPresent(integration->{
             
-                integration.set결과코드("연계완료됨");
-                integration.set송신데이터("민원송신내역-"+ integrationReqistered.get연계Id());
-                integration.set수신데이터("민원치리내역-"+ integrationReqistered.get연계Id());
+                integration.setResultCode("Completed");
+                integration.setSentData("Complaint Sent Details-"+ integrationRegistered.getIntegrationId());
+                integration.setReceivedData("Complaint Handling Details-"+ integrationRegistered.getIntegrationId());
                 repository().save(integration);
     
                 RelationPartyServiceDone relationPartyServiceDone = new RelationPartyServiceDone(integration);
@@ -111,7 +109,7 @@ public class Integration {
              });
            
         }else
-            throw new RuntimeException("장애발생");
+            throw new RuntimeException("Error Occurred");
 
          
     }

@@ -27,16 +27,16 @@ public class PolicyHandler {
         value = KafkaProcessor.INPUT,
         condition = "headers['type']=='RelationPartyServiceDone'"
     )
-    public void wheneverRelationPartyServiceDone_문서저장(
+    public void wheneverRelationPartyServiceDone_documentSave(
         @Payload RelationPartyServiceDone relationPartyServiceDone
     ) {
         RelationPartyServiceDone event = relationPartyServiceDone;
         System.out.println(
-            "\n\n##### listener 문서저장 : " + relationPartyServiceDone + "\n\n"
+            "\n\n##### listener documentSave : " + relationPartyServiceDone + "\n\n"
         );
 
         // Sample Logic //
-        Edms.문서저장(event);
+        Edms.saveDocument(event);
     }
 }
 //>>> Clean Arch / Inbound Adaptor

@@ -18,6 +18,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public interface IssuranceRepository
     extends PagingAndSortingRepository<Issurance, Long> {
 
-        public Optional<Issurance> findBy신청번호(String 신청번호);
+        public Optional<Issurance> findByApplicationNumber(String applicationNumber);
 
     }

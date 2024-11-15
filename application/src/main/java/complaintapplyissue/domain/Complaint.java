@@ -16,31 +16,31 @@ public class Complaint {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long 신청번호;
+    private Long applicationNumber;
 
-    private String 서식일렬번호;
+    private String formSerialNumber;
 
-    private String 서비스id;
+    private String serviceId;
 
-    private String 서비스분류코드;
+    private String serviceCategoryCode;
 
-    private String 신청인명;
+    private String applicantName;
 
-    private String 주민등록번호;
+    private String residentRegistrationNumber;
 
-    private String 신청처리결과코드;
+    private String applicationProcessingResultCode;
 
-    private Date 신청일시;
+    private Date applicationDateTime;
 
-    private Date 등록일시;
+    private Date registrationDateTime;
 
-    private Date 수정일시;
-
-    @Embedded
-    private ApplicationFile 구비서류;
+    private Date modificationDateTime;
 
     @Embedded
-    private ReceiveMethod 신청수령방법;
+    private ApplicationFile requiredDocuments;
+
+    @Embedded
+    private ReceiveMethod receiveMethod;
 
     @Embedded
     private ApplicationFile applicationFile;
@@ -48,7 +48,7 @@ public class Complaint {
     @PostPersist
     public void onPostPersist() {
         ComplaintAccepted complaintAccepted = new ComplaintAccepted(this);
-        complaintAccepted.set신청번호(get신청번호().toString());
+        complaintAccepted.setApplicationNumber(getApplicationNumber().toString());
         complaintAccepted.publishAfterCommit();
     }
 

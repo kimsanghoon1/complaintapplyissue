@@ -15,20 +15,20 @@ import org.springframework.beans.BeanUtils;
 @NoArgsConstructor
 public class ApplicationFile {
 
-    private String 파일Id;
+    private String fileId;
 
-    private String 파일명;
+    private String fileName;
 
-    private String 파일확장자명;
+    private String fileExtension;
 
-    private FileType 파일유형코드;
+    private FileType fileTypeCode;
 
-    private String 파일순서;
+    private String fileOrder;
 
-    private Boolean 사용여부;
+    private Boolean isActive;
 
-    private Date 등록일시;
+    private Date createdDate;
 
-    private Date 수정일시;
+    private Date modifiedDate;
 }
 //>>> DDD / Value Object

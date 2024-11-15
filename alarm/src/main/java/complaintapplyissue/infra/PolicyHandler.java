@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 public class PolicyHandler {
 
     @Autowired
-    알림Repository 알림Repository;
+    NotificationRepository notificationRepository;
 
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}
@@ -27,30 +27,30 @@ public class PolicyHandler {
         value = KafkaProcessor.INPUT,
         condition = "headers['type']=='EdmsStored'"
     )
-    public void wheneverEdmsStored_알림발송(@Payload EdmsStored edmsStored) {
+    public void wheneverEdmsStored_sendNotification(@Payload EdmsStored edmsStored) {
         EdmsStored event = edmsStored;
         System.out.println(
-            "\n\n##### listener 알림발송 : " + edmsStored + "\n\n"
+            "\n\n##### listener sendNotification : " + edmsStored + "\n\n"
         );
 
         // Sample Logic //
-        알림.알림발송(event);
+        Notification.sendNotification(event);
     }
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
         condition = "headers['type']=='ComplaintAccepted'"
     )
-    public void wheneverComplaintAccepted_알림발송(
+    public void wheneverComplaintAccepted_sendNotification(
         @Payload ComplaintAccepted complaintAccepted
     ) {
         ComplaintAccepted event = complaintAccepted;
         System.out.println(
-            "\n\n##### listener 알림발송 : " + complaintAccepted + "\n\n"
+            "\n\n##### listener sendNotification : " + complaintAccepted + "\n\n"
         );
 
         // Sample Logic //
-        알림.알림발송(event);
+        Notification.sendNotification(event);
     }
 }
 //>>> Clean Arch / Inbound Adaptor

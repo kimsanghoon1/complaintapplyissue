@@ -24,12 +24,12 @@ public class ApplicationStatusQueryViewHandler {
         try {
             if (!complaintAccepted.validate()) return;
 
-            // view 객체 생성
+            // Create view object
             ApplicationStatusQuery applicationStatusQuery = new ApplicationStatusQuery();
-            // view 객체에 이벤트의 Value 를 set 함
-            applicationStatusQuery.setStatus("신청완료");
-            applicationStatusQuery.setId(complaintAccepted.get신청번호());
-            // view 레파지 토리에 save
+            // Set the event's value to the view object
+            applicationStatusQuery.setStatus("Application Completed");
+            applicationStatusQuery.setId(complaintAccepted.getApplicationNumber());
+            // Save to the view repository
             applicationStatusQueryRepository.save(applicationStatusQuery);
         } catch (Exception e) {
             e.printStackTrace();
@@ -40,19 +40,19 @@ public class ApplicationStatusQueryViewHandler {
     public void whenEdmsStored_then_UPDATE_1(@Payload EdmsStored edmsStored) {
         try {
             if (!edmsStored.validate()) return;
-            // view 객체 조회
+            // Retrieve view object
             Optional<ApplicationStatusQuery> applicationStatusQueryOptional = applicationStatusQueryRepository.findById(
-                Long.valueOf(edmsStored.get신청번호())
+                Long.valueOf(edmsStored.getApplicationNumber())
             );
 
             if (applicationStatusQueryOptional.isPresent()) {
                 ApplicationStatusQuery applicationStatusQuery = applicationStatusQueryOptional.get();
-                // view 객체에 이벤트의 eventDirectValue 를 set 함
-                applicationStatusQuery.setStatus("발급완료");
+                // Set the event's direct value to the view object
+                applicationStatusQuery.setStatus("Issuance Completed");
                 applicationStatusQuery.setEdmsDocumentId(
-                    edmsStored.get파일id()
+                    edmsStored.getFileId()
                 );
-                // view 레파지 토리에 save
+                // Save to the view repository
                 applicationStatusQueryRepository.save(applicationStatusQuery);
             }
         } catch (Exception e) {

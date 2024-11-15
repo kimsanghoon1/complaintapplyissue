@@ -9,21 +9,19 @@ import lombok.*;
 //<<< DDD / Domain Event
 @Data
 @ToString
-public class Printed extends AbstractEvent {
+public class ApplicationCompletionNotification extends AbstractEvent {
 
     private Long id;
     private String complaintId;
     private String complaintReceiptNumber;
-    private String issuanceStatus;
-    private String viewerExecutionStatus;
-    private String certificateStatus;
-    private String printStatus;
+    private String applicationNotificationSent;
+    private String processingNotificationSent;
 
-    public Printed(Issurance aggregate) {
+    public ApplicationCompletionNotification(Notification aggregate) {
         super(aggregate);
     }
 
-    public Printed() {
+    public ApplicationCompletionNotification() {
         super();
     }
 }

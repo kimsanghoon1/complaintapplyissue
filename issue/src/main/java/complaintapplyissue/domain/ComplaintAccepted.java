@@ -9,12 +9,12 @@ import lombok.*;
 @ToString
 public class ComplaintAccepted extends AbstractEvent {
 
-    private Long 신청데이터일렬번호;
-    private String 신청번호;
-    private String 서식Json내용;
-    private String 신청데이터Xml내용;
-    private String 신청메타Xml내용;
-    private Boolean 사용여부;
-    private Date 등록일시;
-    private Date 수정일시;
+    private Long applicationDataSerialNumber;
+    private String applicationNumber;
+    private String formJsonContent;
+    private String applicationDataXmlContent;
+    private String applicationMetaXmlContent;
+    private Boolean isActive;
+    private Date registrationDate;
+    private Date modificationDate;
 }

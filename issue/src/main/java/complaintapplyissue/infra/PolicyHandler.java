@@ -27,32 +27,32 @@ public class PolicyHandler {
         value = KafkaProcessor.INPUT,
         condition = "headers['type']=='EdmsStored'"
     )
-    public void wheneverEdmsStored_처리정보수신(
+    public void wheneverEdmsStored_receiveProcessingInfo(
         @Payload EdmsStored edmsStored
     ) {
         EdmsStored event = edmsStored;
         System.out.println(
-            "\n\n##### listener 처리정보수신 : " + edmsStored + "\n\n"
+            "\n\n##### listener receiveProcessingInfo : " + edmsStored + "\n\n"
         );
 
         // Sample Logic //
-        Issurance.처리정보수신(event);
+        Issurance.receiveProcessingInfo(event);
     }
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
         condition = "headers['type']=='ComplaintAccepted'"
     )
-    public void wheneverComplaintAccepted_신청등록(
+    public void wheneverComplaintAccepted_registerApplication(
         @Payload ComplaintAccepted complaintAccepted
     ) {
         ComplaintAccepted event = complaintAccepted;
         System.out.println(
-            "\n\n##### listener 신청등록 : " + complaintAccepted + "\n\n"
+            "\n\n##### listener registerApplication : " + complaintAccepted + "\n\n"
         );
 
         // Sample Logic //
-        Issurance.신청등록(event);
+        Issurance.registerApplication(event);
     }
 }
 //>>> Clean Arch / Inbound Adaptor

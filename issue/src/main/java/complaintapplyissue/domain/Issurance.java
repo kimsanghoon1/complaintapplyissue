@@ -17,26 +17,26 @@ public class Issurance {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long 발급파일일련번호;
+    private Long issuanceFileSerialNumber;
 
-    private String 신청번호;
+    private String applicationNumber;
 
-    private String 파일Id;
+    private String fileId;
 
-    private String 파일명;
+    private String fileName;
 
-    private String 파일경로명;
+    private String filePathName;
 
-    private String 파일확장자명;
+    private String fileExtensionName;
 
-    private String 파일크기;
+    private String fileSize;
 
-    private String 파일순서;
+    private String fileOrder;
 
     private String status;
 
     @Embedded
-    private ComplaintApplicationId 민원접수id;
+    private ComplaintApplicationId complaintApplicationId;
 
     @Embedded
     private FileType fileType;
@@ -58,16 +58,16 @@ public class Issurance {
     }
 
     //<<< Clean Arch / Port Method
-    public static void 처리정보수신(EdmsStored edmsStored) {
+    public static void receiveProcessingInfo(EdmsStored edmsStored) {
 
-        repository().findBy신청번호(edmsStored.get신청번호()).ifPresent(issurance->{
+        repository().findByApplicationNumber(edmsStored.getApplicationNumber()).ifPresent(issurance -> {
             
-            issurance.setStatus("발급완료"); 
-            issurance.set파일Id(edmsStored.getId().toString());
-            issurance.set파일경로명(edmsStored.get파일경로명());
-            issurance.set파일명(edmsStored.get파일명());
-            issurance.set파일크기(edmsStored.get파일크기());
-            issurance.set파일확장자명(edmsStored.get파일확장자명());
+            issurance.setStatus("Issued"); 
+            issurance.setFileId(edmsStored.getId().toString());
+            issurance.setFilePathName(edmsStored.getFilePathName());
+            issurance.setFileName(edmsStored.getFileName());
+            issurance.setFileSize(edmsStored.getFileSize());
+            issurance.setFileExtensionName(edmsStored.getFileExtension());
             
             repository().save(issurance);
 
@@ -80,11 +80,11 @@ public class Issurance {
     }
 
    
-    public static void 신청등록(ComplaintAccepted complaintAccepted) {
+    public static void registerApplication(ComplaintAccepted complaintAccepted) {
 
         Issurance issurance = new Issurance();
-        issurance.set신청번호(complaintAccepted.get신청번호());
-        issurance.setStatus("신청중");
+        issurance.setApplicationNumber(complaintAccepted.getApplicationNumber());
+        issurance.setStatus("Applying");
         repository().save(issurance);
 
     }

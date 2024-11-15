@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 //<<< Clean Arch / Inbound Adaptor
 
 @RestController
-// @RequestMapping(value="/알림")
+// @RequestMapping(value="/notification")
 @Transactional
-public class 알림Controller {
+public class NotificationController {
 
     @Autowired
-    알림Repository 알림Repository;
+    NotificationRepository notificationRepository;
 }
 //>>> Clean Arch / Inbound Adaptor

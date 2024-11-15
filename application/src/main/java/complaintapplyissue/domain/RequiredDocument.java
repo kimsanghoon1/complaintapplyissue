@@ -15,19 +15,19 @@ import org.springframework.beans.BeanUtils;
 @NoArgsConstructor
 public class RequiredDocument {
 
-    private String 파일id;
+    private String fileId;
 
-    private String 파일명;
+    private String fileName;
 
-    private String 파일경로명;
+    private String filePathName;
 
-    private String 파일확장자명;
+    private String fileExtensionName;
 
-    private String 파일크기;
+    private String fileSize;
 
-    private String 파일순서;
+    private String fileOrder;
 
-    private Boolean 사용여부;
+    private Boolean isActive;
 
     private FileType fileType;
 }

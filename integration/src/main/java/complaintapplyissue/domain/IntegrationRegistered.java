@@ -9,16 +9,16 @@ import lombok.*;
 //<<< DDD / Domain Event
 @Data
 @ToString
-public class IntegrationReqistered extends AbstractEvent {
+public class IntegrationRegistered extends AbstractEvent {
 
-    private Long 연계Id;
+    private Long integrationId;
 
-    public IntegrationReqistered(Integration aggregate) {
-        super(aggregate);
+    public IntegrationRegistered() {
+        super();
     }
 
-    public IntegrationReqistered() {
-        super();
+    public IntegrationRegistered(Integration aggregate) {
+        super(aggregate);
     }
 }
 //>>> DDD / Domain Event
